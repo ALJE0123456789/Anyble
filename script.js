@@ -206,7 +206,24 @@ function cycleFeed() {
 
 initFeed();
 setInterval(cycleFeed, 2600);
+// === Premium Card Entrance ===
+const premiumCard = document.querySelector('.premium-card');
+if (premiumCard) {
+    const cardObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                cardObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
 
+    premiumCard.style.opacity = '0';
+    premiumCard.style.transform = 'translateY(40px)';
+    premiumCard.style.transition = 'opacity 0.9s ease, transform 0.9s ease';
+    cardObserver.observe(premiumCard);
+}
 // === Console Signature ===
 console.log('%c🚀 Anyble', 'font-size: 24px; font-weight: bold; background: linear-gradient(135deg, #7C5CFF, #FF6B9D); -webkit-background-clip: text; -webkit-text-fill-color: transparent;');
 console.log('%cDesigned & built by Aadhil Junise', 'font-size: 13px; color: #8A8AA0;');
