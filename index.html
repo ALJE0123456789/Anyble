@@ -3,14 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anyble - Buy & Sell Near You</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Anyble — Buy & Sell Near You</title>
+    <meta name="description" content="Anyble is the simplest way to discover second-hand items in your neighbourhood and sell what you no longer need.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-logo">Anyble<span>.</span></div>
+            <div class="loader-bar"><div class="loader-progress"></div></div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursorFollower"></div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Background Grid -->
+    <div class="bg-grid"></div>
+
     <!-- Animated Background Blobs -->
     <div class="bg-blobs">
         <div class="blob blob-1"></div>
@@ -19,185 +38,338 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <a href="#" class="logo">Anyble<span>.</span></a>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-mark">A</span>
+                <span class="logo-text">Anyble</span>
+            </a>
             <ul class="nav-links">
-                <li><a href="#features">Features</a></li>
-                <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="#download" class="btn-primary">Download</a></li>
+                <li><a href="#features" data-magnetic>Features</a></li>
+                <li><a href="#how" data-magnetic>How It Works</a></li>
+                <li><a href="#download" data-magnetic>Download</a></li>
             </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <a href="https://play.google.com/store/apps/details?id=com.anyble.app" target="_blank" class="nav-cta" data-magnetic>
+                <span>Get App</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+            <button class="hamburger" id="hamburger">
+                <span></span><span></span>
+            </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#features">Features</a>
+        <a href="#how">How It Works</a>
+        <a href="#download">Download</a>
+    </div>
+
+    <!-- Hero -->
     <header class="hero">
-        <div class="container hero-content">
-            <div class="hero-text" data-animate="fade-up">
-                <div class="badge">🚀 Now available on Android</div>
-                <h1>Buy & Sell <span class="highlight">Near You</span></h1>
-                <p>The simplest way to discover second-hand items in your neighbourhood and sell what you no longer need.</p>
-                <div class="hero-buttons">
-                    <a href="https://play.google.com/store/apps/details?id=com.anyble.app" class="btn-primary" target="_blank">
-                        <i class="fab fa-google-play"></i> Get on Google Play
+        <div class="hero-container">
+            <div class="hero-left">
+                <div class="hero-meta" data-animate>
+                    <span class="dot"></span>
+                    <span>Now live on Android</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="line">
+                        <span class="word">Buy</span>
+                        <span class="word">&</span>
+                        <span class="word">Sell</span>
+                    </span>
+                    <span class="line">
+                        <span class="word">Near</span>
+                        <span class="word gradient-text">You.</span>
+                    </span>
+                </h1>
+                <p class="hero-desc" data-animate>
+                    The neighbourhood marketplace that connects you with the people living around you. Discover great finds, declutter your home, and make local connections.
+                </p>
+                <div class="hero-actions" data-animate>
+                    <a href="https://play.google.com/store/apps/details?id=com.anyble.app" target="_blank" class="btn-primary" data-magnetic>
+                        <i class="fab fa-google-play"></i>
+                        <span>Download on Google Play</span>
                     </a>
-                    <a href="#" class="btn-secondary">
-                        <i class="fab fa-apple"></i> Coming on iOS
+                    <a href="#how" class="btn-ghost" data-magnetic>
+                        <span>See how it works</span>
+                        <i class="fas fa-arrow-down"></i>
                     </a>
                 </div>
-                <div class="stats">
+                <div class="hero-stats" data-animate>
                     <div class="stat">
-                        <span class="stat-number" data-count="500">0</span><span>+</span>
-                        <p>Active Users</p>
+                        <div class="stat-value"><span data-count="500">0</span>+</div>
+                        <div class="stat-label">Active Users</div>
                     </div>
+                    <div class="stat-divider"></div>
                     <div class="stat">
-                        <span class="stat-number" data-count="1200">0</span><span>+</span>
-                        <p>Items Listed</p>
+                        <div class="stat-value"><span data-count="1200">0</span>+</div>
+                        <div class="stat-label">Items Listed</div>
                     </div>
+                    <div class="stat-divider"></div>
                     <div class="stat">
-                        <span class="stat-number" data-count="15">0</span><span>+</span>
-                        <p>Cities</p>
+                        <div class="stat-value"><span data-count="15">0</span>+</div>
+                        <div class="stat-label">Cities Live</div>
                     </div>
                 </div>
             </div>
 
-            <div class="hero-image" data-animate="fade-left">
-                <div class="phone-wrapper">
-                    <div class="floating-card card-1">
+            <div class="hero-right">
+                <div class="phone-scene" id="phoneScene">
+                    <div class="floating-tag tag-1">
                         <img src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=100&h=100&fit=crop" alt="Bicycle">
                         <div>
                             <strong>Bicycle</strong>
-                            <small>₹5,500</small>
+                            <small>₹5,500 · 2 km away</small>
                         </div>
                     </div>
-                    <div class="floating-card card-2">
+                    <div class="floating-tag tag-2">
                         <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=100&h=100&fit=crop" alt="Table">
                         <div>
                             <strong>Study Table</strong>
-                            <small>₹2,000</small>
+                            <small>₹2,000 · 800 m away</small>
                         </div>
                     </div>
-                    <div class="floating-card card-3">
+                    <div class="floating-tag tag-3">
                         <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=100&h=100&fit=crop" alt="Phone">
                         <div>
                             <strong>iPhone 12</strong>
-                            <small>₹35,000</small>
+                            <small>₹35,000 · 1.2 km</small>
                         </div>
                     </div>
 
-                    <div class="phone-mockup">
-                        <div class="phone-notch"></div>
-                        <div class="phone-screen">
-                            <div class="app-header">
-                                <span class="app-logo">Anyble</span>
-                                <i class="fas fa-search"></i>
-                            </div>
-                            <div class="app-location">
-                                <i class="fas fa-map-marker-alt"></i> Cherthala, Kerala
-                            </div>
-                            <div class="app-items" id="appItems">
-                                <!-- Items injected by JS -->
+                    <div class="phone" id="phoneTilt">
+                        <div class="phone-frame">
+                            <div class="phone-notch"></div>
+                            <div class="phone-screen">
+                                <div class="app-bar">
+                                    <div class="app-bar-left">
+                                        <span class="app-name">Anyble</span>
+                                        <span class="app-loc"><i class="fas fa-map-marker-alt"></i> Cherthala</span>
+                                    </div>
+                                    <div class="app-bar-icon"><i class="fas fa-search"></i></div>
+                                </div>
+                                <div class="app-feed" id="appFeed">
+                                    <!-- JS injects -->
+                                </div>
+                                <div class="app-nav">
+                                    <i class="fas fa-home active"></i>
+                                    <i class="fas fa-compass"></i>
+                                    <i class="fas fa-plus-circle"></i>
+                                    <i class="fas fa-comment"></i>
+                                    <i class="fas fa-user"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
     </header>
 
-    <!-- Features Section -->
-    <section id="features" class="features">
-        <div class="container">
-            <h2 class="section-title" data-animate="fade-up">Why Choose <span class="highlight">Anyble?</span></h2>
-            <p class="section-subtitle" data-animate="fade-up">Everything you need to buy and sell locally, in one app.</p>
+    <!-- Marquee -->
+    <section class="marquee-section">
+        <div class="marquee">
+            <div class="marquee-track">
+                <span>Neighbourhood Marketplace</span>
+                <span class="dot-sep">◆</span>
+                <span>Zero Commission</span>
+                <span class="dot-sep">◆</span>
+                <span>Direct Chat</span>
+                <span class="dot-sep">◆</span>
+                <span>Local Pickup</span>
+                <span class="dot-sep">◆</span>
+                <span>Verified Users</span>
+                <span class="dot-sep">◆</span>
+                <span>Neighbourhood Marketplace</span>
+                <span class="dot-sep">◆</span>
+                <span>Zero Commission</span>
+                <span class="dot-sep">◆</span>
+                <span>Direct Chat</span>
+                <span class="dot-sep">◆</span>
+                <span>Local Pickup</span>
+                <span class="dot-sep">◆</span>
+                <span>Verified Users</span>
+                <span class="dot-sep">◆</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="section-container">
+            <div class="section-head">
+                <div class="section-num" data-animate>01</div>
+                <div>
+                    <div class="section-label" data-animate>Features</div>
+                    <h2 class="section-title" data-animate>
+                        Built for the way <br>
+                        <span class="gradient-text">real neighbourhoods</span> work.
+                    </h2>
+                </div>
+            </div>
+
             <div class="features-grid">
-                <div class="feature-card" data-animate="fade-up" data-delay="0">
-                    <div class="feature-icon"><i class="fas fa-map-marker-alt"></i></div>
-                    <h3>Location-Based Listings</h3>
-                    <p>Find items available near your exact location using pincode or GPS.</p>
+                <div class="feature-card" data-animate>
+                    <div class="feature-num">01</div>
+                    <div class="feature-icon"><i class="fas fa-location-dot"></i></div>
+                    <h3>Location-First Discovery</h3>
+                    <p>Every listing is tied to a real location. Filter by pincode, neighbourhood, or radius to find what's truly nearby.</p>
+                    <div class="feature-hover-line"></div>
                 </div>
-                <div class="feature-card" data-animate="fade-up" data-delay="100">
+                <div class="feature-card" data-animate>
+                    <div class="feature-num">02</div>
                     <div class="feature-icon"><i class="fas fa-comments"></i></div>
-                    <h3>Direct Chat</h3>
-                    <p>Message sellers directly. Negotiate price and arrange pickup safely.</p>
+                    <h3>Real-time Chat</h3>
+                    <p>Talk directly with buyers and sellers. No middlemen, no hidden fees, no bots — just real conversations.</p>
+                    <div class="feature-hover-line"></div>
                 </div>
-                <div class="feature-card" data-animate="fade-up" data-delay="200">
-                    <div class="feature-icon"><i class="fas fa-hand-holding-usd"></i></div>
-                    <h3>Make Offers</h3>
-                    <p>Don't like the price? Make an offer and let the seller decide.</p>
+                <div class="feature-card" data-animate>
+                    <div class="feature-num">03</div>
+                    <div class="feature-icon"><i class="fas fa-hand-holding-dollar"></i></div>
+                    <h3>Smart Offers</h3>
+                    <p>Negotiation is part of the deal. Make an offer, counter, and settle on a price that works for both sides.</p>
+                    <div class="feature-hover-line"></div>
                 </div>
-                <div class="feature-card" data-animate="fade-up" data-delay="300">
-                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
-                    <h3>Verified Accounts</h3>
-                    <p>Email-verified accounts and seller ratings for safer transactions.</p>
+                <div class="feature-card" data-animate>
+                    <div class="feature-num">04</div>
+                    <div class="feature-icon"><i class="fas fa-user-shield"></i></div>
+                    <h3>Trust Built In</h3>
+                    <p>Email verification, seller ratings, and reporting tools keep the marketplace safe for everyone involved.</p>
+                    <div class="feature-hover-line"></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- How It Works -->
-    <section id="how-it-works" class="how-it-works">
-        <div class="container">
-            <h2 class="section-title" data-animate="fade-up">How It <span class="highlight">Works</span></h2>
-            <p class="section-subtitle" data-animate="fade-up">Start buying and selling in three simple steps.</p>
+    <section class="how" id="how">
+        <div class="section-container">
+            <div class="section-head">
+                <div class="section-num" data-animate>02</div>
+                <div>
+                    <div class="section-label" data-animate>Process</div>
+                    <h2 class="section-title" data-animate>
+                        From listing to <span class="gradient-text">handshake</span><br>
+                        in three steps.
+                    </h2>
+                </div>
+            </div>
+
             <div class="steps">
-                <div class="step" data-animate="fade-up" data-delay="0">
-                    <div class="step-number">1</div>
-                    <h3>Create a Listing</h3>
-                    <p>Take a photo, add a title, description, price, and your location.</p>
+                <div class="step" data-animate>
+                    <div class="step-visual">
+                        <div class="step-screen step-screen-1">
+                            <div class="mini-card"><span class="mini-img" style="background-image:url('https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=100&h=100&fit=crop')"></span><div><strong>Bicycle</strong><small>₹5,500</small></div></div>
+                            <div class="mini-card"><span class="mini-img" style="background-image:url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=100&h=100&fit=crop')"></span><div><strong>Study Table</strong><small>₹2,000</small></div></div>
+                        </div>
+                    </div>
+                    <div class="step-info">
+                        <div class="step-num">01</div>
+                        <h3>List it</h3>
+                        <p>Snap a photo, add a title, set your price, and drop your location. Your listing goes live in seconds.</p>
+                    </div>
                 </div>
-                <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
-                <div class="step" data-animate="fade-up" data-delay="150">
-                    <div class="step-number">2</div>
-                    <h3>Chat & Negotiate</h3>
-                    <p>Interested buyers will message you directly to discuss the details.</p>
+
+                <div class="step-line"></div>
+
+                <div class="step" data-animate>
+                    <div class="step-visual">
+                        <div class="step-screen step-screen-2">
+                            <div class="chat-bubble left">Is this still available?</div>
+                            <div class="chat-bubble right">Yes! ₹5,000 and it's yours.</div>
+                            <div class="chat-bubble left">Deal 🤝</div>
+                        </div>
+                    </div>
+                    <div class="step-info">
+                        <div class="step-num">02</div>
+                        <h3>Chat & Offer</h3>
+                        <p>Buyers reach out directly. Chat, ask questions, negotiate a price — all inside the app.</p>
+                    </div>
                 </div>
-                <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
-                <div class="step" data-animate="fade-up" data-delay="300">
-                    <div class="step-number">3</div>
-                    <h3>Meet & Close</h3>
-                    <p>Arrange a safe meeting spot, inspect the item, and complete the deal.</p>
+
+                <div class="step-line"></div>
+
+                <div class="step" data-animate>
+                    <div class="step-visual">
+                        <div class="step-screen step-screen-3">
+                            <div class="handshake-icon"><i class="fas fa-handshake"></i></div>
+                            <div class="deal-text">Deal Closed!</div>
+                            <div class="deal-sub">Pickup at 5:30 PM today</div>
+                        </div>
+                    </div>
+                    <div class="step-info">
+                        <div class="step-num">03</div>
+                        <h3>Meet & Close</h3>
+                        <p>Agree on a spot, inspect the item, hand over the cash. Done. No shipping, no waiting.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Download Section -->
-    <section id="download" class="download">
-        <div class="container">
-            <h2 data-animate="fade-up">Ready to <span>Start?</span></h2>
-            <p data-animate="fade-up">Download Anyble and start buying and selling in your neighbourhood today.</p>
-            <a href="https://play.google.com/store/apps/details?id=com.anyble.app" class="btn-primary btn-large pulse" target="_blank" data-animate="fade-up">
-                <i class="fab fa-google-play"></i> Download on Google Play
+    <!-- Download CTA -->
+    <section class="download" id="download">
+        <div class="download-inner">
+            <div class="download-bg-text">ANYBLE</div>
+            <div class="section-label" data-animate>Get Started</div>
+            <h2 class="download-title" data-animate>
+                Your neighbourhood <br>
+                <span class="gradient-text">is waiting.</span>
+            </h2>
+            <p class="download-desc" data-animate>
+                Download Anyble free on Android. Buy and sell with people around you — safely and simply.
+            </p>
+            <a href="https://play.google.com/store/apps/details?id=com.anyble.app" target="_blank" class="btn-primary btn-xl" data-magnetic>
+                <i class="fab fa-google-play"></i>
+                <span>Download on Google Play</span>
             </a>
+            <div class="download-meta" data-animate>
+                <span><i class="fas fa-check"></i> Free to use</span>
+                <span><i class="fas fa-check"></i> No ads</span>
+                <span><i class="fas fa-check"></i> No commission</span>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container footer-content">
-            <div class="footer-brand">
-                <h3>Anyble<span>.</span></h3>
-                <p>Buy & sell near you.</p>
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-logo">Anyble<span>.</span></div>
+                    <p>The neighbourhood marketplace for buying and selling locally.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <a href="#features">Features</a>
+                    <a href="#how">How It Works</a>
+                    <a href="#download">Download</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="#">About</a>
+                    <a href="#">Blog</a>
+                    <a href="mailto:faseenanvar@gmail.com">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow</h4>
+                    <a href="#">Instagram</a>
+                    <a href="#">Twitter / X</a>
+                    <a href="#">LinkedIn</a>
+                </div>
             </div>
-            <div class="footer-links">
-                <a href="#features">Features</a>
-                <a href="#how-it-works">How It Works</a>
-                <a href="mailto:faseenanvar@gmail.com">Contact</a>
+            <div class="footer-bottom">
+                <span>© 2026 Anyble. All rights reserved.</span>
+                <span>Designed & built by <strong>Aadhil Junise</strong></span>
             </div>
-            <div class="footer-social">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Anyble. Built by Aadhil Junise.</p>
         </div>
     </footer>
 
